@@ -1,0 +1,10 @@
+.card{
+
+    min-height: 380px;
+
+}
+
+
+.btn.btn-primary.btn-card{
+    margin: auto auto;
+}
