@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(214, 214, 214);
+}
+
+.drag_container, .drop_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    padding: 30px;
+  
+}
+
+.drag_item, .drop_item{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.drag{
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(4, 100, 245);
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invisible{
+    display: none;
+}
+
+.enter{
+    width: 96px;
+    height: 96px;
+    border: dashed 2px rgb(109, 109, 109);
+}
