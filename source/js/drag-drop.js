@@ -111,7 +111,7 @@ function dragEnd(e)
 }
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    var body = document.getElementsByTagName('body')
+    var body = document.getElementById('body')
 
-    body.innerHTML = '<p>Error</p>'
+    body.innerHTML = '<p>Disponível somenete em desktop...</p>'
    }
