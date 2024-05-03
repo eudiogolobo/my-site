@@ -9,9 +9,9 @@
     <title>Conversor</title>
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav class="navbar sticky-top navbar-expand-lg border-bottom border-body" style="background-color:  rgb(61, 61, 194);" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img style="width: 200px; color: transparent;" src="logoTroia.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img style="width: 200px; color: transparent;" src="logoTroia.png" alt="">My Site</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,14 +34,23 @@
         </div>
     </nav>
 
+    <!----------------------------------------------------------------------->
+
+    <div id="main">
+      <h1>Bem-Vindo ao Meu Site</h1>
+      <div id="content-main">
+      </div>
+   
+
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
-    <div class="container" style="height: 1000px;">
+    <div id="div-1">
 
-     
-
-        <div class="row p-4">
-            <h3>Projetos de Sucesso</h3>
+      <div  class="container">
+        <div  class="row">
+            <h3>Meus Projetos</h3>
             <hr>
             <div class="card">
               <div class="card-body">
@@ -49,7 +58,7 @@
                 <p class="card-text">Projeto realizado a partir de um trabalho da matéria "Fundamentos Matemáticos", do curso de Ciências da Compuação da UNESC. No protótipo utilizou-se algumas ferramentas como: Bootstrap, Git, GitHub, Visual Studio Code, HTML5 e CSS3, em conjunto com o método AJAX, para um melhor desempenho e aperfeiçoamento do mesmo, facilitando o versionamento, como também, a manutenção. 
                 </p>
                 <p class="card-text"><small class="text-body-secondary">Publicado em 03/05/2024</small></p>
-                <a href="https://eudiogolobo.github.io/site-sistemas-numerico/index.html" class="btn btn-primary btn-card">Visitar</a>
+                <a href="https://eudiogolobo.github.io/site-sistemas-numerico/index.html" class="btn btn-success btn-card" target="_blank">Visitar projeto</a>
               </div>
               <img src="img/sistemasNumericos.PNG" class="card-img-bottom" alt="...">
             </div>
@@ -59,44 +68,82 @@
                 <h5 class="card-title">Projeto Labs Makers</h5>
                 <p class="card-text">Projeto Laravel, realizado a partir de algumas necessidades das escolas municipais de Santa Catarina, com o objetivo de agilizar processos morosos. Sendo assim, facilitando o agendamento de salas e equipamentos das Instituições de Ensino, como também, favorecendo o acesso as informações de modo geral, proporcionando a possibilidade de gerar relatórios para o requerimento de novos equipamentos/ objetos.</p>
                 <p class="card-text"><small class="text-body-secondary">Publicado em 03/05/2024</small></p>
-                <a href="#" class="btn btn-primary btn-card">Visitar</a>
+                <a href="#" class="btn btn-success btn-card">Visitar projeto</a>
               </div>
               <img src="img/labsMakers.PNG" class="card-img-bottom" alt="...">
             </div>
+        </div>
 
-            <h3>Atividades Concluídas</h3>
+      </div>
 
-            <hr>
 
-            <h4>Javascript</h4>
+    </div>
 
-            <div class="row mt-3">
-              <div class="col-sm-6 mb-3 mb-sm-0">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Drop and Drag</h5>
-                    <p class="card-text">Realizando-se o estudo dos eventos "arrastar" e "soltar" do Javascript, neste, um exercício de exemplo.</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
+    <div id="div-2">
+      <div  class="container">
+            <div class="row p-5">
+              <h3>Atividades Concluídas</h3>
+
+              <hr>
+
+              <h4>Javascript</h4>
+
+              <div class="row mt-3">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Drop and Drag (Apenas para Desktop)</h5>
+                      <p class="card-text">Realizando-se o estudo dos eventos "arrastar" e "soltar" do Javascript, neste, um exercício de exemplo.</p>
+                      <a href="https://eudiogolobo.github.io/my-site/source/views/drag-drop.html" class="btn btn-success" target="_blank">Visualizar</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Método AJAX</h5>
-                    <p class="card-text">Com o intuito de aprofundar-se em Javascript, realizou-se o estudo do método AJAX, com alguns exercícios e exemplos.</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Método AJAX</h5>
+                      <p class="card-text">Com o intuito de aprofundar-se em Javascript, realizou-se o estudo do método AJAX, com alguns exercícios e exemplos.</p>
+                      <a href="https://github.com/eudiogolobo/AJAX" class="btn btn-success" target="_blank">Visualizar</a>
+                    </div>
                   </div>
                 </div>
+              </div>  
+
+              <div class="" style="display: flex; align-items: center; gap: 10px;">
+                <h4>C++</h4>
+                <h5 style="font-weight: 400; font-size: medium;">(Faculdade)</h5>
               </div>
+
+             
+
+              <div class="row mt-3">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Drop and Drag (Apenas para Desktop)</h5>
+                      <p class="card-text">Realizando-se o estudo dos eventos "arrastar" e "soltar" do Javascript, neste, um exercício de exemplo.</p>
+                      <a href="https://eudiogolobo.github.io/my-site/source/views/drag-drop.html" class="btn btn-success" target="_blank">Visualizar</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Método AJAX</h5>
+                      <p class="card-text">Com o intuito de aprofundar-se em Javascript, realizou-se o estudo do método AJAX, com alguns exercícios e exemplos.</p>
+                      <a href="https://github.com/eudiogolobo/AJAX" class="btn btn-success" target="_blank">Visualizar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+
+
+
             </div>
-
-
-
-
-                        
         </div>
     </div>
+
+   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="source/js/js.js"></script> 
 </body>
