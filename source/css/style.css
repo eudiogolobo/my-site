@@ -1,10 +1,18 @@
-.card{
-
-    min-height: 380px;
-
+body{
+    background-color: rgb(238, 238, 238);
 }
 
 
 .btn.btn-primary.btn-card{
     margin: auto auto;
+}
+
+.card{
+    margin-bottom: 40px;
+   
+   
+}
+
+.card-img-bottom{
+    
 }
