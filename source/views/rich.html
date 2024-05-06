@@ -106,7 +106,11 @@
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
                 </svg>
           </button>
-          <button type="button" class="btn btn-primary">4</button>
+          <button id="btn-trash" type="button" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                </svg>
+          </button>
         </div>
         <div class="btn-group me-2" role="group" aria-label="Second group">
           <button type="button" class="btn btn-secondary">5</button>
@@ -117,10 +121,6 @@
           <button type="button" class="btn btn-info">8</button>
         </div>
       </div>
-     
-      
-      <div class="draglabe"><textarea class="mydiv"></textarea></div>
-     
    
 
     <div class="content-pages">
@@ -145,44 +145,110 @@
         $(document).ready(()=>{
 
           
+            $('.page').addClass('page-selected')
 
             $('.page').click(function(){
                 $(this).addClass('page-selected')
             })
 
+            paragraphCount = 0
+            divID= 0
 
-            $('#btn-paragraph').click(function(){
-                $('.page-selected').append('<div class="draglabe"><textarea class="mydiv"></textarea></div>')
+            function removeP()
+            {
+                var focued = $('.focus')
+                if(focued.length > 0)
+                {
+                    var filho = focued.children()
 
-            })
+                    if(filho.val() == '')
+                    {
+                        focued[0].remove()
+                    }
 
-            $('textarea').click(function(){
-
-                $(this).focus()
-                alert('oi')
-
-                var paiNode = this.parentNode;
-                console.log(paiNode)
-
-                $(paiNode).addClass('focus')
-
-            })
-
-
-            $('textarea').blur(function(){
-                $('.focus').removeClass('focus')
+                }
                 
+                
+
+            }
+         
+            $('#btn-paragraph').click(()=>{
+                $('.page-selected').append('<div id="div-'+divID+'" class="draglabe"><textarea id="paragraph-'+paragraphCount+'" class="mydiv"></textarea></div>')
+                
+
+
+                removeP()
+
+                $('.focus').removeClass('focus')
+                $('#div-'+divID+'').addClass('focus')
+
+
+                $('#paragraph-'+paragraphCount+'').focus()
+
+                $('#paragraph-'+paragraphCount+'').click(function(){
+
+                    $(this).focus()
+
+                    var focued = $('.focus')
+
+                    if(focued.length > 0)
+                    {
+                        var filho = focued.children()
+
+                        if(filho.val() == '' && focued[0].id != this.parentNode.id)
+                        {
+                            console.log(this.parentNode.id, focued[0].id)
+                            focued[0].remove()
+                        }
+
+                    }
+
+                    
+
+                    var paiNode = this.parentNode;
+                    
+                    $('.focus').removeClass('focus')
+                    $(paiNode).addClass('focus')
+                    
+                })
+
+              
+                reloadMyDiv()
+                paragraphCount++
+                divID++
+              
+
+
             })
 
+           
 
+            $('#btn-trash').click(function(){
+                $('.focus').remove()
+            })
+
+            function removerElemento()
+            {
+               
+            }
+
+
+            reloadMyDiv()
+            elements = []
 
             // Make the DIV element draggable:
-            let elements = document.querySelectorAll(".mydiv");
+            function reloadMyDiv(){
+                 elements = []
+                 elements = document.querySelectorAll(".mydiv");
+                
+                 elements.forEach(item => {
+                        
+                        dragElement(item)
+                    });
+            }
+           
 
-            elements.forEach(item => {
-               
-                dragElement(item)
-            });
+            
 
           
 
@@ -216,6 +282,7 @@
         yT = 0
         yB = 0
 
+       
 
         function elementDrag(e) {
 
@@ -225,11 +292,15 @@
             e.preventDefault();
             // calculate the new cursor position:
 
+         
             var pai = elmnt.parentNode
 
+            /*
             var pai2 = pai.parentNode
 
             console.log(pai2)
+
+            
 
             
 
@@ -244,13 +315,13 @@
 
             if ( e.clientX  < xL) {
                 pai.style.left = 0 + "px";
-                    console.log('a')
+                    
                 } else if (e.clientX + xR  > pai2.clientWidth) {
                     pai.style.left = (pai2.clientWidth - pai.clientWidth) + "px";
-                    console.log('é')
+                   
                 } else {
                     pai.style.left = (pai.offsetLeft - (pos3 - e.clientX)) + "px";
-                    console.log('b')
+                    
                 }
             
             if (e.clientY < yT) {
@@ -263,11 +334,12 @@
                 pai.style.top = (pai.offsetTop - (pos4 - e.clientY)) + "px";
             
             }
+            */
 
-            pos1 = pos3 - e.clientX;
-        // pos2 = pos4 - e.clientY;
+        pai.style.left = (pai.offsetLeft - (pos3 - e.clientX)) + "px";
+        pai.style.top = (pai.offsetTop - (pos4 - e.clientY)) + "px";
         pos3 = e.clientX;
-            pos4 = e.clientY;
+        pos4 = e.clientY;
             // set the element's new position:
         
 
