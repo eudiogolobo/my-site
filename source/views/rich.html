@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- include libraries(jQuery, bootstrap) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+       
+
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+        <style>
+        body{
+            max-width: 100vw;
+            background-color: rgb(194, 194, 194);
+            height: 100vh;
+        }
+        
+
+
+        .content-pages{
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .page{
+            width: 620px;
+            height: 770px;
+            background-color: white;
+        }
+
+        .page.page-selected{
+
+            border: 1px solid;
+            border-color: rgb(139, 139, 255);
+
+        }
+
+        .btn-toolbar{
+           justify-content: center;
+            padding: 5px;
+        }
+
+        .draglabe{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            resize: both;
+            z-index: 9;
+        }
+
+        textarea{
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            resize:none;
+            border: none;
+            background-color: transparent;
+          
+
+        }
+
+        textarea:focus{
+            outline: 0;
+            background-color: transparent;
+
+        }
+
+        .draglabe.focus{
+            overflow: hidden;
+            border: 2px solid;
+            border-color: rgba(139, 139, 255, 0.651);
+            border-radius: 3px;
+            background-color: transparent;
+           
+        }
+
+        </style>
+  
+</head>
+<body>
+    
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button id="btn-paragraph" type="button" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paragraph" viewBox="0 0 16 16">
+                    <path d="M10.5 15a.5.5 0 0 1-.5-.5V2H9v12.5a.5.5 0 0 1-1 0V9H7a4 4 0 1 1 0-8h5.5a.5.5 0 0 1 0 1H11v12.5a.5.5 0 0 1-.5.5"/>
+                </svg>
+          </button>
+          <button type="button" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+                    <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                </svg>
+          </button>
+          <button type="button" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+                </svg>
+          </button>
+          <button type="button" class="btn btn-primary">4</button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-secondary">5</button>
+          <button type="button" class="btn btn-secondary">6</button>
+          <button type="button" class="btn btn-secondary">7</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-info">8</button>
+        </div>
+      </div>
+     
+      
+      <div class="draglabe"><textarea class="mydiv"></textarea></div>
+     
+   
+
+    <div class="content-pages">
+        <div class="page">
+        </div>
+    </div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script>
+        $(document).ready(()=>{
+
+          
+
+            $('.page').click(function(){
+                $(this).addClass('page-selected')
+            })
+
+
+            $('#btn-paragraph').click(function(){
+                $('.page-selected').append('<div class="draglabe"><textarea class="mydiv"></textarea></div>')
+
+            })
+
+            $('textarea').click(function(){
+
+                $(this).focus()
+                alert('oi')
+
+                var paiNode = this.parentNode;
+                console.log(paiNode)
+
+                $(paiNode).addClass('focus')
+
+            })
+
+
+            $('textarea').blur(function(){
+                $('.focus').removeClass('focus')
+                
+            })
+
+
+
+            // Make the DIV element draggable:
+            let elements = document.querySelectorAll(".mydiv");
+
+            elements.forEach(item => {
+               
+                dragElement(item)
+            });
+
+          
+
+
+
+        function dragElement(elmnt) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById(elmnt.id + "header")) {
+            // if present, the header is where you move the DIV from:
+            document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+        } else {
+            // otherwise, move the DIV from anywhere inside the DIV:
+            elmnt.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+
+        xR = 0
+        xL = 0
+
+        yT = 0
+        yB = 0
+
+
+        function elementDrag(e) {
+
+
+
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+
+            var pai = elmnt.parentNode
+
+            var pai2 = pai.parentNode
+
+            console.log(pai2)
+
+            
+
+            xL =  pos3 - pai.getBoundingClientRect().left
+
+            xR = pai.clientWidth - (pos3 - pai.getBoundingClientRect().left) 
+
+            yT = pos4 - pai.getBoundingClientRect().top
+
+            yB =  pai.clientHeight - (pos4 - pai.getBoundingClientRect().top) 
+            
+
+            if ( e.clientX  < xL) {
+                pai.style.left = 0 + "px";
+                    console.log('a')
+                } else if (e.clientX + xR  > pai2.clientWidth) {
+                    pai.style.left = (pai2.clientWidth - pai.clientWidth) + "px";
+                    console.log('é')
+                } else {
+                    pai.style.left = (pai.offsetLeft - (pos3 - e.clientX)) + "px";
+                    console.log('b')
+                }
+            
+            if (e.clientY < yT) {
+                pai.style.top = 0 + "px";
+            
+            } else if (e.clientY + yB > pai2.clientHeight) {
+            
+                pai.style.top = ( pai2.clientHeight - pai.clientHeight) + "px";
+            } else {
+                pai.style.top = (pai.offsetTop - (pos4 - e.clientY)) + "px";
+            
+            }
+
+            pos1 = pos3 - e.clientX;
+        // pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+        
+
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+        }
+             
+                })
+         
+</script>
+</body>
+</html>
